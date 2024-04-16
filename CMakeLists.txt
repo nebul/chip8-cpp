@@ -31,6 +31,10 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         chip8_display.h chip8_display.cpp chip8_display.ui
+        chip8_registers.h chip8_registers.cpp chip8_registers.ui
+        chip8_memory.h chip8_memory.cpp chip8_memory.ui
+        chip8_stack.h chip8_stack.cpp chip8_stack.ui
+        chip8_disassembly.h chip8_disassembly.cpp chip8_disassembly.ui
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET chip8 APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
