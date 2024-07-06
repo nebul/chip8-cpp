@@ -11,8 +11,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Stack</string>
   </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QListWidget" name="stackList"/>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

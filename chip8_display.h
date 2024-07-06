@@ -13,7 +13,7 @@ class Chip8Display : public QWidget
 
 public:
     explicit Chip8Display(QWidget *parent = nullptr);
-    ~Chip8Display();
+    ~Chip8Display(void);
 
     void update_screen(QVector<uint8_t>& screen);
 

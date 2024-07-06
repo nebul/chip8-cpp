@@ -7,12 +7,20 @@ class Chip8
 public:
     Chip8();
     ~Chip8();
-    void initialize();
-    void run_cycle();
+    void initialize(void);
+    void run_cycle(void);
     void load_program(const std::vector<uint8_t> &program);
     void set_key_state(uint8_t key, bool state);
     bool get_beep_state(void);
     std::array<uint8_t, 64U * 32U>& get_display_state(void);
+    const std::array<uint8_t, 4096>& get_memory(void);
+    uint16_t get_pc(void);
+    const std::array<uint8_t, 16>& get_v(void);
+    uint16_t get_i(void);
+    uint8_t get_sp(void);
+    uint8_t get_delay_timer(void);
+    uint8_t get_sound_timer(void);
+    const std::array<uint16_t, 16>& get_stack(void);
 
 private:
     void execute_opcode(uint16_t opcode);

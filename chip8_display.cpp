@@ -8,10 +8,10 @@ Chip8Display::Chip8Display(QWidget *parent)
     , ui(new Ui::Chip8Display)
 {
     ui->setupUi(this);
-    screen_.fill(0, 64U * 32U);
+    screen_.fill(0U, 64U * 32U);
 }
 
-Chip8Display::~Chip8Display()
+Chip8Display::~Chip8Display(void)
 {
     delete ui;
 }

@@ -2,17 +2,18 @@
 
 #include "chip8.hpp"
 
-Chip8::Chip8()
+Chip8::Chip8(void)
 {
 }
 
-Chip8::~Chip8()
+Chip8::~Chip8(void)
 {
 }
 
-void Chip8::initialize()
+void Chip8::initialize(void)
 {
-    const std::array<uint8_t, 80U> chip8_fontset = {
+    const std::array<uint8_t, 80U> chip8_fontset = 
+    {
         0xF0U, 0x90U, 0x90U, 0x90U, 0xF0U, // 0
         0x20U, 0x60U, 0x20U, 0x20U, 0x70U, // 1
         0xF0U, 0x10U, 0xF0U, 0x80U, 0xF0U, // 2
@@ -50,7 +51,7 @@ void Chip8::initialize()
     key_state_.fill(false);
 }
 
-void Chip8::run_cycle()
+void Chip8::run_cycle(void)
 {
     uint16_t opcode = memory_[pc_] << 8U | memory_[pc_ + 1U];
     execute_opcode(opcode);
@@ -261,14 +262,14 @@ void Chip8::execute_opcode(uint16_t opcode)
             pc_ += 2U;
             break;
         case 0x0055U:
-            for (uint16_t index = 0; index <= ((opcode & 0x0F00U) >> 8U); index++)
+            for (uint16_t index = 0U; index <= ((opcode & 0x0F00U) >> 8U); index++)
             {
                 memory_[i_ + index] = v_[index];
             }
             pc_ += 2U;
             break;
         case 0x0065U:
-            for (uint16_t index = 0; index <= ((opcode & 0x0F00U) >> 8U); index++)
+            for (uint16_t index = 0U; index <= ((opcode & 0x0F00U) >> 8U); index++)
             {
                 v_[index] = memory_[i_ + index];
             }
@@ -283,7 +284,7 @@ void Chip8::execute_opcode(uint16_t opcode)
     }
 }
 
-void Chip8::update_timers()
+void Chip8::update_timers(void)
 {
     if (delay_timer_ > 0U)
     {
@@ -304,7 +305,7 @@ void Chip8::update_timers()
     }
 }
 
-void Chip8::clear_display()
+void Chip8::clear_display(void)
 {
     display_.fill(0U);
 }
@@ -329,4 +330,43 @@ std::array<uint8_t, 64U*32U>& Chip8::get_display_state(void)
 bool Chip8::get_beep_state(void)
 {
     return beep_state_;
+}
+const std::array<uint8_t, 4096U>& Chip8::get_memory(void)
+{ 
+    return memory_; 
+}
+
+uint16_t Chip8::get_pc(void) 
+{ 
+    return pc_; 
+}
+
+const std::array<uint8_t, 16U>& Chip8::get_v(void)
+{ 
+    return v_; 
+}
+
+uint16_t Chip8::get_i(void)  
+{ 
+    return i_; 
+}
+
+uint8_t Chip8::get_sp(void) 
+{ 
+    return sp_; 
+}
+
+uint8_t Chip8::get_delay_timer(void) 
+{ 
+    return delay_timer_; 
+}
+
+uint8_t Chip8::get_sound_timer(void)  
+{ 
+    return sound_timer_;
+}
+
+const std::array<uint16_t, 16>& Chip8::get_stack(void)  
+{ 
+    return stack_; 
 }

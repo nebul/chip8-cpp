@@ -6,7 +6,7 @@ Chip8Application::Chip8Application(int &argc, char **argv) : QApplication(argc, 
     chip8_mainWindow_->show();
 }
 
-Chip8Application::~Chip8Application() 
+Chip8Application::~Chip8Application(void)
 {
     delete chip8_mainWindow_;
 }

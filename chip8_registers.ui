@@ -11,8 +11,30 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Registers</string>
   </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QTableWidget" name="registersTable">
+     <property name="columnCount">
+      <number>2</number>
+     </property>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>100</number>
+     </attribute>
+     <column>
+      <property name="text">
+       <string>Register</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Value</string>
+      </property>
+     </column>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>
